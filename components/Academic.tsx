@@ -81,7 +81,7 @@ export default function Academic() {
                     item.type
                   )} flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}
                 >
-                  <div className="text-white w-5 h-5 sm:w-6 sm:h-6">
+                  <div className="text-white flex items-center justify-center">
                     {item.icon}
                   </div>
                 </div>
@@ -90,9 +90,13 @@ export default function Academic() {
                   {item.title}
                 </h3>
 
-                <p className="text-white/70 text-xs sm:text-sm mb-2">{item.institution}</p>
+                <p className="text-white/70 text-xs sm:text-sm mb-2">
+                  {item.institution}
+                </p>
 
-                <p className="text-white/50 text-xs mb-3 sm:mb-4">{item.period}</p>
+                <p className="text-white/50 text-xs mb-3 sm:mb-4">
+                  {item.period}
+                </p>
 
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
                   {item.description}

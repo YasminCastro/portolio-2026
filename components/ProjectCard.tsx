@@ -99,15 +99,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         project.category
                       )} flex items-center justify-center shadow-lg shrink-0 cursor-help`}
                     >
-                      <div className="text-white">
-                        <div className="w-4 h-4 sm:w-5 sm:h-5">
-                          {getCategoryIcon(project.category)}
-                        </div>
+                      <div className="text-white flex items-center justify-center">
+                        {getCategoryIcon(project.category)}
                       </div>
                     </div>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="max-w-xs text-xs sm:text-sm">{project.categoryDescription}</p>
+                    <p className="max-w-xs text-xs sm:text-sm">
+                      {project.categoryDescription}
+                    </p>
                   </TooltipContent>
                 </Tooltip>
               ) : (
@@ -116,10 +116,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     project.category
                   )} flex items-center justify-center shadow-lg shrink-0`}
                 >
-                  <div className="text-white">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5">
-                      {getCategoryIcon(project.category)}
-                    </div>
+                  <div className="text-white flex items-center justify-center">
+                    {getCategoryIcon(project.category)}
                   </div>
                 </div>
               )}
