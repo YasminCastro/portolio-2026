@@ -39,10 +39,19 @@ export default function Header() {
 
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => handleNavigation("#about")}
+                onClick={() => handleNavigation("#skills")}
                 className="px-4 py-2 text-white hover:text-gray-300 data-[state=open]:text-white rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto border-0 focus:bg-white/5 cursor-pointer"
               >
-                About
+                Skills
+              </MenubarTrigger>
+            </MenubarMenu>
+
+            <MenubarMenu>
+              <MenubarTrigger
+                onClick={() => handleNavigation("#experience")}
+                className="px-4 py-2 text-white hover:text-gray-300 data-[state=open]:text-white rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto border-0 focus:bg-white/5 cursor-pointer"
+              >
+                Experience
               </MenubarTrigger>
             </MenubarMenu>
 
@@ -52,6 +61,15 @@ export default function Header() {
                 className="px-4 py-2 text-white hover:text-gray-300 data-[state=open]:text-white rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto border-0 focus:bg-white/5 cursor-pointer"
               >
                 Projects
+              </MenubarTrigger>
+            </MenubarMenu>
+
+            <MenubarMenu>
+              <MenubarTrigger
+                onClick={() => handleNavigation("#academic")}
+                className="px-4 py-2 text-white hover:text-gray-300 data-[state=open]:text-white rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto border-0 focus:bg-white/5 cursor-pointer"
+              >
+                Academic
               </MenubarTrigger>
             </MenubarMenu>
 

@@ -63,7 +63,7 @@ export default function Projects() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
-          title="Work"
+          title="Projects"
           description="Some of the noteworthy projects I have built:"
           className="mb-16"
         />
