@@ -24,6 +24,34 @@ const projects: Project[] = [
     categoryDescription:
       "The TIC Residency is a hands-on training program by UFG and BRISA where developers learn through real projects. It combines technical learning with practical experience, working in teams to build real solutions for partner companies and organizations.",
   },
+  {
+    title: "Dairy Farm",
+    description:
+      "Dairy Farm is a web application developed to display and analyze dairy farming data in a clear and interactive way. I worked on building a responsive interface focused on usability and data visualization, creating reusable components and improving the user experience. The project was developed in collaboration with Professor Eduardo Noronha, a specialist in data analysis for the dairy sector.",
+    technologies: [
+      "React",
+      "Next.js",
+      "Typescript",
+      "Tailwind CSS",
+      "Data Visualization Components",
+      "UX/UI Prototyping",
+    ],
+    image: "/projects/dairy-farm.png",
+    category: "volunteer",
+    categoryDescription:
+      "Volunteer front-end development focused on data visualization and user interface design.",
+  },
+  {
+    title: "Malucas Awards",
+    description:
+      "Maluca Awards is a personal project created in 2024 as a playful parody of the VMA. It was built as a voting platform for a group of friends, where users could log in, vote across different categories and choose the winners. At the end, we hosted a small event to reveal the results and celebrate together. It was a fun and interactive project that combined technology with entertainment.",
+    technologies: ["React", "Next.js", "Typescript", "Tailwind CSS", "MongoDB"],
+    image: "/projects/maluca-awards.png",
+    category: "personal",
+    link: "https://malucas-awards.vercel.app",
+    categoryDescription:
+      "Personal project focused on creating an interactive voting platform for entertainment.",
+  },
 ];
 
 export default function Projects() {

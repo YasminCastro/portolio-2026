@@ -1,6 +1,12 @@
 "use client";
 
-import { ExternalLink, Briefcase, Heart, Building2 } from "lucide-react";
+import {
+  ExternalLink,
+  Briefcase,
+  Heart,
+  Building2,
+  Sparkles,
+} from "lucide-react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,20 +22,22 @@ export interface Project {
   technologies: string[];
   image: string;
   link?: string;
-  category: "personal" | "volunteer" | "residency";
+  category: "personal" | "volunteer" | "residency" | "freelancer";
   categoryDescription?: string;
 }
 
 const getCategoryIcon = (category: string) => {
   switch (category) {
     case "personal":
-      return <Briefcase className="w-5 h-5" />;
+      return <Sparkles className="w-5 h-5" />;
     case "volunteer":
       return <Heart className="w-5 h-5" />;
     case "residency":
       return <Building2 className="w-5 h-5" />;
-    default:
+    case "freelancer":
       return <Briefcase className="w-5 h-5" />;
+    default:
+      return <Sparkles className="w-5 h-5" />;
   }
 };
 
@@ -41,6 +49,8 @@ const getCategoryColor = (category: string) => {
       return "from-[#A78BFA] to-[#FCA5A5]";
     case "residency":
       return "from-[#6EE7B7] to-[#60A5FA]";
+    case "freelancer":
+      return "from-[#FCA5A5] to-[#A78BFA]";
     default:
       return "from-[#A78BFA] to-[#60A5FA]";
   }
@@ -54,21 +64,10 @@ const getCategoryLabel = (category: string) => {
       return "Volunteer";
     case "residency":
       return "Residency";
+    case "freelancer":
+      return "Freelancer";
     default:
       return category;
-  }
-};
-
-const getCategoryDescription = (category: string) => {
-  switch (category) {
-    case "personal":
-      return "Personal projects developed on my own initiative to explore new technologies and build solutions.";
-    case "volunteer":
-      return "Volunteer projects developed for social causes and non-profit organizations.";
-    case "residency":
-      return "Projects developed during technical residency programs, working with real-world applications and teams.";
-    default:
-      return "";
   }
 };
 
@@ -92,25 +91,34 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <CardContent className="p-8 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div
-                    className={`w-12 h-12 rounded-full bg-linear-to-br ${getCategoryColor(
-                      project.category
-                    )} flex items-center justify-center shadow-lg shrink-0 cursor-help`}
-                  >
-                    <div className="text-white">
-                      {getCategoryIcon(project.category)}
+              {project.categoryDescription ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div
+                      className={`w-12 h-12 rounded-full bg-linear-to-br ${getCategoryColor(
+                        project.category
+                      )} flex items-center justify-center shadow-lg shrink-0 cursor-help`}
+                    >
+                      <div className="text-white">
+                        {getCategoryIcon(project.category)}
+                      </div>
                     </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="max-w-xs">{project.categoryDescription}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ) : (
+                <div
+                  className={`w-12 h-12 rounded-full bg-linear-to-br ${getCategoryColor(
+                    project.category
+                  )} flex items-center justify-center shadow-lg shrink-0`}
+                >
+                  <div className="text-white">
+                    {getCategoryIcon(project.category)}
                   </div>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="max-w-xs">
-                    {project.categoryDescription ||
-                      getCategoryDescription(project.category)}
-                  </p>
-                </TooltipContent>
-              </Tooltip>
+                </div>
+              )}
               <div>
                 <h3 className="text-2xl font-bold text-white">
                   {project.title}
