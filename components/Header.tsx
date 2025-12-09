@@ -3,6 +3,7 @@
 import { Home } from "lucide-react";
 import Link from "next/link";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
+import DownloadCVButton from "./DownloadCVButton";
 
 export default function Header() {
   const handleNavigation = (href: string) => {
@@ -85,12 +86,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center">
-          <Link
-            href="#download"
-            className="px-6 py-2 bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] text-white rounded-full font-medium text-sm hover:opacity-90 transition-opacity shadow-lg shadow-[#A78BFA]/20"
-          >
-            Download CV
-          </Link>
+          <DownloadCVButton />
         </div>
       </nav>
     </header>
