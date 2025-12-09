@@ -18,6 +18,7 @@ import {
   SiAmazon,
   SiGit,
 } from "react-icons/si";
+import SectionTitle from "./SectionTitle";
 
 interface Skill {
   name: string;
@@ -74,36 +75,31 @@ export default function Skills() {
       className="min-h-screen flex items-center justify-center py-20 px-6"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col items-center space-y-8">
-          <button className="px-4 py-1.5 rounded-full bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-lg shadow-[#A78BFA]/20">
-            Skills
-          </button>
+        <SectionTitle
+          title="Skills"
+          description="The skills, tools and technologies I am really good at:"
+        />
 
-          <p className="text-white/90 text-center text-lg max-w-2xl">
-            The skills, tools and technologies I am really good at:
-          </p>
-
-          <div className="w-full max-w-6xl mx-auto grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-6 mt-8">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center space-y-3 p-4 md:p-6 rounded-xl bg-[#161B22] border border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20 group cursor-pointer"
-              >
-                <div className="flex items-center justify-center">
-                  {skill.icon}
-                </div>
-                <p
-                  className={`text-white/90 font-medium text-center group-hover:text-white transition-colors  ${
-                    skill.name.length > 15
-                      ? "text-[10px] md:text-xs"
-                      : "text-xs md:text-sm"
-                  }`}
-                >
-                  {skill.name}
-                </p>
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-6 mt-8">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center space-y-3 p-4 md:p-6 rounded-xl bg-[#161B22] border border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20 group cursor-pointer"
+            >
+              <div className="flex items-center justify-center">
+                {skill.icon}
               </div>
-            ))}
-          </div>
+              <p
+                className={`text-white/90 font-medium text-center group-hover:text-white transition-colors  ${
+                  skill.name.length > 15
+                    ? "text-[10px] md:text-xs"
+                    : "text-xs md:text-sm"
+                }`}
+              >
+                {skill.name}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
