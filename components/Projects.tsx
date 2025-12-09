@@ -58,16 +58,16 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center py-20 px-6"
+      className="min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
           title="Projects"
-          description="Projects I’ve worked on:"
-          className="mb-16"
+          description="Projects I've worked on:"
+          className="mb-8 sm:mb-12 md:mb-16"
         />
 
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-10 md:space-y-12">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

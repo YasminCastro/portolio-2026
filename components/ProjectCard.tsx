@@ -79,7 +79,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card className="bg-[#161B22] border-white/10 overflow-hidden hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <div className="relative w-full h-64 lg:h-auto">
+        <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-auto">
           <Image
             src={project.image}
             alt={project.title}
@@ -88,39 +88,43 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           />
         </div>
 
-        <CardContent className="p-8 flex flex-col justify-between">
+        <CardContent className="p-4 sm:p-6 md:p-8 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
               {project.categoryDescription ? (
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div
-                      className={`w-12 h-12 rounded-full bg-linear-to-br ${getCategoryColor(
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-br ${getCategoryColor(
                         project.category
                       )} flex items-center justify-center shadow-lg shrink-0 cursor-help`}
                     >
                       <div className="text-white">
-                        {getCategoryIcon(project.category)}
+                        <div className="w-4 h-4 sm:w-5 sm:h-5">
+                          {getCategoryIcon(project.category)}
+                        </div>
                       </div>
                     </div>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="max-w-xs">{project.categoryDescription}</p>
+                    <p className="max-w-xs text-xs sm:text-sm">{project.categoryDescription}</p>
                   </TooltipContent>
                 </Tooltip>
               ) : (
                 <div
-                  className={`w-12 h-12 rounded-full bg-linear-to-br ${getCategoryColor(
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-br ${getCategoryColor(
                     project.category
                   )} flex items-center justify-center shadow-lg shrink-0`}
                 >
                   <div className="text-white">
-                    {getCategoryIcon(project.category)}
+                    <div className="w-4 h-4 sm:w-5 sm:h-5">
+                      {getCategoryIcon(project.category)}
+                    </div>
                   </div>
                 </div>
               )}
-              <div>
-                <h3 className="text-2xl font-bold text-white">
+              <div className="min-w-0 flex-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   {project.title}
                 </h3>
                 <p className="text-white/60 text-xs mt-1">
@@ -128,16 +132,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </p>
               </div>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
               {project.technologies.map((tech, idx) => (
                 <Badge
                   key={idx}
                   variant="outline"
-                  className="bg-[#0D1117] border-white/10 text-white/70 hover:border-[#A78BFA]/50 px-3 py-1"
+                  className="bg-[#0D1117] border-white/10 text-white/70 hover:border-[#A78BFA]/50 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs"
                 >
                   {tech}
                 </Badge>
@@ -150,10 +154,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors w-fit"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors w-fit text-xs sm:text-sm"
             >
-              <ExternalLink className="w-4 h-4" />
-              <span className="text-sm">View Project</span>
+              <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>View Project</span>
             </a>
           )}
         </CardContent>

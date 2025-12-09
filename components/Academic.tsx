@@ -60,39 +60,41 @@ export default function Academic() {
   return (
     <section
       id="academic"
-      className="min-h-screen flex items-center justify-center py-20 px-6"
+      className="min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
           title="Academic"
           description="My educational background and certifications:"
-          className="mb-16"
+          className="mb-8 sm:mb-12 md:mb-16"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {academicItems.map((item, index) => (
             <Card
               key={index}
               className="bg-[#161B22] border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20"
             >
-              <CardContent className="p-6 flex flex-col items-center text-center">
+              <CardContent className="p-4 sm:p-6 flex flex-col items-center text-center">
                 <div
-                  className={`w-16 h-16 rounded-full bg-linear-to-br ${getIconColor(
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-linear-to-br ${getIconColor(
                     item.type
-                  )} flex items-center justify-center mb-4 shadow-lg`}
+                  )} flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}
                 >
-                  <div className="text-white">{item.icon}</div>
+                  <div className="text-white w-5 h-5 sm:w-6 sm:h-6">
+                    {item.icon}
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-white/70 text-sm mb-2">{item.institution}</p>
+                <p className="text-white/70 text-xs sm:text-sm mb-2">{item.institution}</p>
 
-                <p className="text-white/50 text-xs mb-4">{item.period}</p>
+                <p className="text-white/50 text-xs mb-3 sm:mb-4">{item.period}</p>
 
-                <p className="text-white/80 text-sm leading-relaxed">
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
                   {item.description}
                 </p>
               </CardContent>

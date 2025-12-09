@@ -63,19 +63,21 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen flex items-center justify-center py-20 px-6"
+      className="min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
           title="Experience"
           description="A timeline of my professional journey."
-          className="mb-16"
+          className="mb-8 sm:mb-12 md:mb-16"
         />
 
         <div className="relative max-w-5xl mx-auto">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-linear-to-b from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] opacity-30"></div>
+          {/* Timeline line - mobile: left side, desktop: center */}
+          <div className="md:hidden absolute left-2 sm:left-3 h-full w-0.5 bg-linear-to-b from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] opacity-30"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-linear-to-b from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] opacity-30"></div>
 
-          <div className="relative space-y-12">
+          <div className="relative space-y-8 sm:space-y-10 md:space-y-12">
             {experiences.map((exp, index) => {
               const isEven = index % 2 === 0;
               const nodeColors = [
@@ -88,29 +90,25 @@ export default function Experience() {
                 <div
                   key={index}
                   className={`relative flex items-center ${
-                    isEven ? "flex-row" : "flex-row-reverse"
+                    isEven ? "flex-row md:flex-row" : "flex-row md:flex-row-reverse"
                   }`}
                 >
-                  <div
-                    className={`w-full md:w-[45%] ${
-                      isEven ? "md:pr-8" : "md:pl-8"
-                    }`}
-                  >
+                  <div className="w-full md:w-[45%] pl-8 sm:pl-10 md:pl-0">
                     <Card className="bg-[#161B22] border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20">
-                      <CardHeader>
-                        <div className="flex items-start gap-4">
+                      <CardHeader className="p-4 sm:p-6">
+                        <div className="flex items-start gap-3 sm:gap-4">
                           <div
-                            className={`w-12 h-12 rounded-lg bg-linear-to-br ${exp.iconColor} flex items-center justify-center shrink-0 shadow-lg`}
+                            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-linear-to-br ${exp.iconColor} flex items-center justify-center shrink-0 shadow-lg`}
                           >
-                            <span className="text-white font-bold text-lg">
+                            <span className="text-white font-bold text-base sm:text-lg">
                               {exp.company.charAt(0)}
                             </span>
                           </div>
-                          <div className="flex-1">
-                            <CardTitle className="text-xl text-white mb-1">
+                          <div className="flex-1 min-w-0">
+                            <CardTitle className="text-lg sm:text-xl text-white mb-1">
                               {exp.position}
                             </CardTitle>
-                            <CardDescription className="text-white/70 text-sm mb-1">
+                            <CardDescription className="text-white/70 text-xs sm:text-sm mb-1">
                               {exp.company} · {exp.location}
                             </CardDescription>
                             <p className="text-white/50 text-xs">
@@ -120,14 +118,14 @@ export default function Experience() {
                         </div>
                       </CardHeader>
 
-                      <CardContent>
-                        <ul className="space-y-2">
+                      <CardContent className="p-4 sm:p-6 pt-0">
+                        <ul className="space-y-2 sm:space-y-2">
                           {exp.responsibilities.map((responsibility, idx) => (
                             <li
                               key={idx}
-                              className="flex items-start gap-2 text-white/80 text-sm"
+                              className="flex items-start gap-2 text-white/80 text-xs sm:text-sm leading-relaxed"
                             >
-                              <Check className="w-4 h-4 text-[#6EE7B7] mt-0.5 shrink-0" />
+                              <Check className="w-3 h-3 sm:w-4 sm:h-4 text-[#6EE7B7] mt-0.5 sm:mt-1 shrink-0" />
                               <span>{responsibility}</span>
                             </li>
                           ))}
@@ -136,9 +134,17 @@ export default function Experience() {
                     </Card>
                   </div>
 
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 flex items-center justify-center z-10">
+                  {/* Timeline node - positioned differently on mobile vs desktop */}
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 items-center justify-center z-10">
                     <div
                       className={`w-4 h-4 rounded-full ${nodeColors[index]} shadow-lg`}
+                    ></div>
+                  </div>
+
+                  {/* Mobile timeline node */}
+                  <div className="md:hidden absolute left-2 sm:left-3 transform -translate-x-1/2 w-3 h-3 flex items-center justify-center z-10">
+                    <div
+                      className={`w-3 h-3 rounded-full ${nodeColors[index]} shadow-lg`}
                     ></div>
                   </div>
 
