@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import { Suspense, useEffect } from "react";
 import { Model3DConfig } from "@/lib/models3d";
@@ -58,6 +58,22 @@ function ShadowPlane({ modelY }: { modelY: number }) {
   );
 }
 
+function CameraUpdater({
+  cameraPosition,
+}: {
+  cameraPosition: [number, number, number];
+}) {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    camera.position.set(...cameraPosition);
+    camera.lookAt(0, 0, 0);
+    camera.updateProjectionMatrix();
+  }, [camera, cameraPosition]);
+
+  return null;
+}
+
 interface ContactAnimationProps {
   config: Model3DConfig;
 }
@@ -91,6 +107,7 @@ export default function ContactAnimation({ config }: ContactAnimationProps) {
             <ShadowPlane modelY={config.position?.[1] || 0} />
           )}
           <Model3D config={config} />
+          <CameraUpdater cameraPosition={config.cameraPosition} />
           <OrbitControls
             enableZoom={true}
             enablePan={true}

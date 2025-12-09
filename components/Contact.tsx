@@ -6,7 +6,9 @@ import { models3D, Model3DConfig } from "@/lib/models3d";
 import { ChevronRight } from "lucide-react";
 
 export default function Contact() {
-  const [currentModelIndex, setCurrentModelIndex] = useState(0);
+  const [currentModelIndex, setCurrentModelIndex] = useState(() =>
+    Math.floor(Math.random() * models3D.length)
+  );
   const [modelConfig, setModelConfig] = useState<Model3DConfig | null>(null);
 
   useEffect(() => {
