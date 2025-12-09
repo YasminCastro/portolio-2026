@@ -30,7 +30,7 @@ export const models3D: Model3DConfig[] = [
     scale: 2,
     position: [0, 0, 0],
     rotation: [0, 0, 0],
-    hasShadow: true,
+    hasShadow: false,
   },
 
   {

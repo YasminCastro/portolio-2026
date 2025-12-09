@@ -2,14 +2,20 @@
 
 import { useState, useEffect } from "react";
 import ContactAnimation from "./ContactAnimation";
-import { getRandomModel, Model3DConfig } from "@/lib/models3d";
+import { models3D, Model3DConfig } from "@/lib/models3d";
+import { ChevronRight } from "lucide-react";
 
 export default function Contact() {
+  const [currentModelIndex, setCurrentModelIndex] = useState(0);
   const [modelConfig, setModelConfig] = useState<Model3DConfig | null>(null);
 
   useEffect(() => {
-    setModelConfig(getRandomModel());
-  }, []);
+    setModelConfig(models3D[currentModelIndex]);
+  }, [currentModelIndex]);
+
+  const handleNextModel = () => {
+    setCurrentModelIndex((prev) => (prev + 1) % models3D.length);
+  };
 
   if (!modelConfig) {
     return null;
@@ -40,6 +46,14 @@ export default function Contact() {
 
           <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden bg-[#161B22] border border-white/10">
             <ContactAnimation config={modelConfig} />
+            <div className="absolute top-4 right-4">
+              <button
+                onClick={handleNextModel}
+                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg flex items-center justify-center"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
             <div className="absolute bottom-4 left-4 right-4 flex justify-center">
               <p className="text-white/50 text-xs text-center">
                 3D Model by{" "}
