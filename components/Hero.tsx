@@ -1,7 +1,8 @@
 "use client";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Avatar3D from "./Avatar3D";
+import SocialButton from "./SocialButton";
 
 export default function Hero() {
   return (
@@ -10,10 +11,10 @@ export default function Hero() {
       className="min-h-screen flex items-center justify-center pt-20 px-6 pb-12"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           {/* Avatar 3D - Lado Esquerdo */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#161B22]">
+            <div className="relative w-80 h-80 lg:w-md lg:h-112 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#161B22]">
               <Avatar3D />
             </div>
           </div>
@@ -40,22 +41,22 @@ export default function Hero() {
 
             {/* Botões de Redes Sociais */}
             <div className="pt-4 flex gap-4">
-              <a
+              <SocialButton
                 href="https://www.linkedin.com/in/yasmin-sdcastro"
+                icon={<FaLinkedin className="w-6 h-6" />}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-lg shadow-[#A78BFA]/20"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-              <a
+              />
+              <SocialButton
                 href="https://github.com/YasminCastro"
+                icon={<FaGithub className="w-6 h-6" />}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-lg shadow-[#A78BFA]/20"
-              >
-                <FaGithub className="w-6 h-6" />
-              </a>
+              />
+              <SocialButton
+                href="mailto:yasminsdcastro@gmail.com"
+                icon={<FaEnvelope className="w-6 h-6" />}
+              />
             </div>
           </div>
         </div>
