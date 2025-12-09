@@ -19,7 +19,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/yasmin-sdcastro"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
             >
               <FaLinkedin className="w-4 h-4" />
             </a>
@@ -27,7 +27,7 @@ export default function Footer() {
               href="https://github.com/YasminCastro"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
             >
               <FaGithub className="w-4 h-4" />
             </a>
@@ -35,7 +35,7 @@ export default function Footer() {
               href="mailto:yasminsdcastro@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="w-8 h-8 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
             >
               <FaEnvelope className="w-4 h-4" />
             </a>
