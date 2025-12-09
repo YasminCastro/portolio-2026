@@ -8,12 +8,11 @@ export default function Contact() {
   const [modelConfig, setModelConfig] = useState<Model3DConfig | null>(null);
 
   useEffect(() => {
-    // Escolhe um modelo aleatório quando o componente monta
     setModelConfig(getRandomModel());
   }, []);
 
   if (!modelConfig) {
-    return null; // ou um loading state
+    return null;
   }
 
   return (

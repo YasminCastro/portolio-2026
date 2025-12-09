@@ -45,7 +45,6 @@ function Model3D({ config }: Model3DProps) {
 }
 
 function ShadowPlane({ modelY }: { modelY: number }) {
-  // Posiciona o plano ligeiramente abaixo da base do modelo
   const planeY = modelY - 0.1;
   return (
     <mesh
@@ -64,7 +63,6 @@ interface ContactAnimationProps {
 }
 
 export default function ContactAnimation({ config }: ContactAnimationProps) {
-  // Preload the model
   useGLTF.preload(config.file);
 
   return (
