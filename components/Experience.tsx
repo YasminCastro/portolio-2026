@@ -21,40 +21,42 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    position: "Senior Full Stack Developer",
-    company: "Tech Solutions Inc.",
+    position: "Full Stack Developer",
+    company: "SVA Tech",
     location: "Remote",
-    period: "Jan 2021 - Present",
+    period: "Nov 2022 - Present",
     responsibilities: [
-      "Led development of a microservices architecture, improving system scalability by 40%.",
-      "Mentored junior developers and conducted code reviews to maintain high-quality standards.",
-      "Engineered and maintained CI/CD pipelines, reducing deployment times by 25%.",
+      "Designed and maintained advanced interactive video analytics dashboards used by enterprise clients such as Vale Rio Doce and Rumo Logística, enhancing data accessibility and interactive responsiveness.",
+      "Developed and deployed scalable APIs and backend services with Node.js, Express.js, and MongoDB, significantly improving overall data processing efficiency, reliability, and maintainability.",
+      "Integrated AI-based video models that automated event detection and reporting processes, reducing manual review workload and accelerating client insights through real-time data analysis.",
+      "Built responsive, cross-platform user interfaces using Angular, Ionic, and Three.js, enabling real-time 3D visualizations and improving user engagement across devices.",
     ],
     iconColor: "from-[#60A5FA] to-[#6EE7B7]",
   },
   {
-    position: "Full Stack Developer",
-    company: "Innovate Corp.",
-    location: "San Francisco, CA",
-    period: "May 2018 - Dec 2020",
+    position: "Junior Software Developer",
+    company: "Hyerdev",
+    location: "Goiânia, GO",
+    period: "Sep 2021 - Nov 2022",
     responsibilities: [
-      "Developed and launched a new customer-facing analytics dashboard using React and D3.js.",
-      "Collaborated with product teams to translate requirements into technical solutions.",
-      "Optimized database queries, which decreased average API response time by 150ms.",
+      "Developed and supported APIs and backend systems using Node.js, TypeScript, GraphQL, and PostgreSQL, applied to logistics and data management solutions. Contributed to the design of database schemas, authentication flows, and RESTful integrations.",
+      "Created web automation and scraping tools with Puppeteer and Node.js scripts to collect, clean, and process data. Improved efficiency in repetitive workflows and reduced manual tasks through automation pipelines.",
+      "Built and customized CMS platforms using Directus, improving content management flexibility and usability.",
+      "Managed infrastructure and deployments with Docker and AWS services, including EC2, S3, and RDS, ensuring reliable, secure environments and streamlined delivery processes.",
     ],
     iconColor: "from-[#A78BFA] to-[#FCA5A5]",
   },
-  {
-    position: "Junior Web Developer",
-    company: "WebCrafters LLC",
-    location: "Boston, MA",
-    period: "Jun 2016 - Apr 2018",
-    responsibilities: [
-      "Built responsive marketing websites and landing pages for various clients using HTML, CSS, and jQuery.",
-      "Assisted senior developers in building and maintaining features for a large-scale e-commerce platform.",
-    ],
-    iconColor: "from-[#6EE7B7] to-[#60A5FA]",
-  },
+  //   {
+  //     position: "Junior Web Developer",
+  //     company: "WebCrafters LLC",
+  //     location: "Boston, MA",
+  //     period: "Jun 2016 - Apr 2018",
+  //     responsibilities: [
+  //       "Built responsive marketing websites and landing pages for various clients using HTML, CSS, and jQuery.",
+  //       "Assisted senior developers in building and maintaining features for a large-scale e-commerce platform.",
+  //     ],
+  //     iconColor: "from-[#6EE7B7] to-[#60A5FA]",
+  //   },
 ];
 
 export default function Experience() {
