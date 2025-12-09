@@ -68,7 +68,7 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
           title="Experience"
-          description="A timeline of my professional journey and contributions."
+          description="A timeline of my professional journey."
           className="mb-16"
         />
 

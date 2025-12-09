@@ -29,11 +29,12 @@ export default function Hero() {
 
             <div className="space-y-4 text-white/90 text-base lg:text-lg leading-relaxed max-w-2xl">
               <p>
-                I'm a full stack developer (React.js & Node.js) with a focus on
-                creating (and occasionally designing) exceptional digital
-                experiences that are fast, accessible, visually appealing, and
-                responsive. Even though I have been creating web applications
-                for several years, I still love it as if it was something new.
+                I'm a Full-Stack Developer working with React, Node.js and
+                TypeScript, creating fast, scalable and intuitive digital
+                experiences. I've been building web and mobile applications
+                since 2021, turning complex data into clean and usable
+                interfaces while constantly exploring new technologies to
+                improve my craft.
               </p>
             </div>
 

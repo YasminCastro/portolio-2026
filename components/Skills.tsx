@@ -77,7 +77,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto w-full">
         <SectionTitle
           title="Skills"
-          description="The skills, tools and technologies I am really good at:"
+          description="The skills, tools and technologies I have experience with:"
         />
 
         <div className="w-full max-w-6xl mx-auto grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-6 mt-8">
