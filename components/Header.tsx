@@ -61,7 +61,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-3">
           <div className="hidden sm:block">
-            <DownloadCVButton className="!px-4 !py-2 text-xs" />
+            <DownloadCVButton className="px-4! py-2! text-xs" />
           </div>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
