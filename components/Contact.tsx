@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import ContactAnimation from "./ContactAnimation";
 import { models3D, Model3DConfig } from "@/lib/models3d";
 import { ChevronRight } from "lucide-react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import DownloadCVButton from "./DownloadCVButton";
 
 export default function Contact() {
   const [currentModelIndex, setCurrentModelIndex] = useState(() =>
@@ -32,18 +34,37 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Have idea about project?
+              Interested in working together?
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed max-w-xl">
-              Write anything here something about yourself to showcase what
-              actually you doing or targeting etc.
-            </p>
-            <a
-              href="mailto:yasminsdcastro@gmail.com"
-              className="inline-block px-8 py-3 rounded-lg bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-lg shadow-[#A78BFA]/20 border border-[#A78BFA]/30"
-            >
-              Send me an email
-            </a>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <DownloadCVButton />
+
+              <a
+                href="mailto:yasminsdcastro@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
+              >
+                <FaEnvelope className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/yasmin-sdcastro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://github.com/YasminCastro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
+            </div>
           </div>
 
           <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden bg-[#161B22] border border-white/10">
