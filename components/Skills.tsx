@@ -38,8 +38,14 @@ const skills: Skill[] = [
     name: "React & React Native",
     icon: <SiReact className="w-full h-full text-[#61DAFB]" />,
   },
-  { name: "Angular", icon: <SiAngular className="w-full h-full text-[#DD0031]" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="w-full h-full text-white" /> },
+  {
+    name: "Angular",
+    icon: <SiAngular className="w-full h-full text-[#DD0031]" />,
+  },
+  {
+    name: "Next.js",
+    icon: <SiNextdotjs className="w-full h-full text-white" />,
+  },
   {
     name: "Tailwindcss",
     icon: <SiTailwindcss className="w-full h-full text-[#06B6D4]" />,
@@ -52,18 +58,30 @@ const skills: Skill[] = [
     name: "Node.js",
     icon: <SiNodedotjs className="w-full h-full text-[#339933]" />,
   },
-  { name: "Express.js", icon: <SiExpress className="w-full h-full text-white" /> },
-  { name: "Nest.js", icon: <SiNestjs className="w-full h-full text-[#E0234E]" /> },
+  {
+    name: "Express.js",
+    icon: <SiExpress className="w-full h-full text-white" />,
+  },
+  {
+    name: "Nest.js",
+    icon: <SiNestjs className="w-full h-full text-[#E0234E]" />,
+  },
   {
     name: "PostgreSQL",
     icon: <SiPostgresql className="w-full h-full text-[#4169E1]" />,
   },
-  { name: "MongoDB", icon: <SiMongodb className="w-full h-full text-[#47A248]" /> },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb className="w-full h-full text-[#47A248]" />,
+  },
   {
     name: "Puppeteer",
     icon: <SiPuppeteer className="w-full h-full text-[#40B5A4]" />,
   },
-  { name: "Docker", icon: <SiDocker className="w-full h-full text-[#2496ED]" /> },
+  {
+    name: "Docker",
+    icon: <SiDocker className="w-full h-full text-[#2496ED]" />,
+  },
   { name: "AWS", icon: <SiAmazon className="w-full h-full text-[#FF9900]" /> },
   { name: "Git", icon: <SiGit className="w-full h-full text-[#F05032]" /> },
 ];

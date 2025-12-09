@@ -90,7 +90,9 @@ export default function Experience() {
                 <div
                   key={index}
                   className={`relative flex items-center ${
-                    isEven ? "flex-row md:flex-row" : "flex-row md:flex-row-reverse"
+                    isEven
+                      ? "flex-row md:flex-row"
+                      : "flex-row md:flex-row-reverse"
                   }`}
                 >
                   <div className="w-full md:w-[45%] pl-8 sm:pl-10 md:pl-0">
