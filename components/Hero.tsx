@@ -12,23 +12,21 @@ export default function Hero() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-          {/* Avatar 3D - Lado Esquerdo */}
+          {/* Left Side */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
             <div className="relative w-80 h-80 lg:w-md lg:h-112 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#161B22]">
               <Avatar3D />
             </div>
           </div>
 
-          {/* Texto - Lado Direito */}
+          {/* Right Side */}
           <div className="order-1 lg:order-2 space-y-6">
-            {/* Título */}
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold text-white">
                 Hi, I'm Yasmin Castro
               </h1>
             </div>
 
-            {/* Texto de Apresentação */}
             <div className="space-y-4 text-white/90 text-base lg:text-lg leading-relaxed max-w-2xl">
               <p>
                 I'm a full stack developer (React.js & Node.js) with a focus on
@@ -39,7 +37,6 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Botões de Redes Sociais */}
             <div className="pt-4 flex gap-4">
               <SocialButton
                 href="https://www.linkedin.com/in/yasmin-sdcastro"
