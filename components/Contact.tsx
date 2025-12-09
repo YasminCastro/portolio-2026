@@ -1,8 +1,21 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import ContactAnimation from "./ContactAnimation";
+import { getRandomModel, Model3DConfig } from "@/lib/models3d";
 
 export default function Contact() {
+  const [modelConfig, setModelConfig] = useState<Model3DConfig | null>(null);
+
+  useEffect(() => {
+    // Escolhe um modelo aleatório quando o componente monta
+    setModelConfig(getRandomModel());
+  }, []);
+
+  if (!modelConfig) {
+    return null; // ou um loading state
+  }
+
   return (
     <section
       id="contact"
@@ -27,17 +40,17 @@ export default function Contact() {
           </div>
 
           <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden bg-[#161B22] border border-white/10">
-            <ContactAnimation />
+            <ContactAnimation config={modelConfig} />
             <div className="absolute bottom-4 left-4 right-4 flex justify-center">
               <p className="text-white/50 text-xs text-center">
                 3D Model by{" "}
                 <a
-                  href="https://sketchfab.com/3d-models/blue-flower-animated-c20b1f12833148e09f7f49c3dd444906"
+                  href={modelConfig.creditUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors underline"
                 >
-                  morphy.vision
+                  {modelConfig.credit}
                 </a>
               </p>
             </div>

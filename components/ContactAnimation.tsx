@@ -3,9 +3,15 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import { Suspense, useEffect } from "react";
+import { Model3DConfig } from "@/lib/models3d";
+import * as THREE from "three";
 
-function FlowerModel() {
-  const { scene, animations } = useGLTF("/blue_flower_animated.glb");
+interface Model3DProps {
+  config: Model3DConfig;
+}
+
+function Model3D({ config }: Model3DProps) {
+  const { scene, animations } = useGLTF(config.file);
   const { actions } = useAnimations(animations, scene);
 
   useEffect(() => {
@@ -17,35 +23,83 @@ function FlowerModel() {
     }
   }, [actions]);
 
+  useEffect(() => {
+    if (config.hasShadow) {
+      scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+    }
+  }, [scene, config.hasShadow]);
+
   return (
     <primitive
       object={scene}
-      scale={2}
-      position={[0, -1, 0]}
-      rotation={[0, Math.PI / 2.5, 0]}
+      scale={config.scale || 1}
+      position={config.position || [0, 0, 0]}
+      rotation={config.rotation || [0, 0, 0]}
     />
   );
 }
 
-useGLTF.preload("/blue_flower_animated.glb");
+function ShadowPlane({ modelY }: { modelY: number }) {
+  // Posiciona o plano ligeiramente abaixo da base do modelo
+  const planeY = modelY - 0.1;
+  return (
+    <mesh
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, planeY, 0]}
+      receiveShadow
+    >
+      <planeGeometry args={[10, 10]} />
+      <shadowMaterial opacity={0.3} />
+    </mesh>
+  );
+}
 
-export default function ContactAnimation() {
+interface ContactAnimationProps {
+  config: Model3DConfig;
+}
+
+export default function ContactAnimation({ config }: ContactAnimationProps) {
+  // Preload the model
+  useGLTF.preload(config.file);
+
   return (
     <div className="relative w-full h-full min-h-[400px]">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        camera={{ position: config.cameraPosition, fov: 50 }}
         gl={{ antialias: true, alpha: true }}
+        shadows={config.hasShadow}
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.6} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <directionalLight
+            position={[10, 10, 5]}
+            intensity={1}
+            castShadow={config.hasShadow}
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
+          />
           <pointLight position={[-10, -10, -5]} intensity={0.5} />
-          <FlowerModel />
+          {config.hasShadow && (
+            <ShadowPlane modelY={config.position?.[1] || 0} />
+          )}
+          <Model3D config={config} />
           <OrbitControls
             enableZoom={true}
             enablePan={true}
             enableRotate={true}
             target={[0, 0, 0]}
+            autoRotate={config.autoRotate}
+            autoRotateSpeed={config.autoRotate ? 0.5 : 0}
           />
         </Suspense>
       </Canvas>
