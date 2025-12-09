@@ -2,7 +2,7 @@
 
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Model3DConfig } from "@/lib/models3d";
 import * as THREE from "three";
 
@@ -80,12 +80,42 @@ interface ContactAnimationProps {
 
 export default function ContactAnimation({ config }: ContactAnimationProps) {
   useGLTF.preload(config.file);
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[400px]">
+    <div ref={containerRef} className="relative w-full h-full min-h-[400px]">
       <Canvas
         camera={{ position: config.cameraPosition, fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{
+          antialias: false,
+          alpha: true,
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: true,
+        }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
+        frameloop={isVisible ? "always" : "never"}
         shadows={config.hasShadow}
       >
         <Suspense fallback={null}>
@@ -94,8 +124,8 @@ export default function ContactAnimation({ config }: ContactAnimationProps) {
             position={[10, 10, 5]}
             intensity={1}
             castShadow={config.hasShadow}
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
             shadow-camera-far={50}
             shadow-camera-left={-10}
             shadow-camera-right={10}
@@ -115,6 +145,8 @@ export default function ContactAnimation({ config }: ContactAnimationProps) {
             target={[0, 0, 0]}
             autoRotate={config.autoRotate}
             autoRotateSpeed={config.autoRotate ? 0.5 : 0}
+            enableDamping={true}
+            dampingFactor={0.05}
           />
         </Suspense>
       </Canvas>

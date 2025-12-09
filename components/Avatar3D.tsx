@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Image as ImageIcon } from "lucide-react";
@@ -16,13 +16,46 @@ useGLTF.preload("/avatar.glb");
 
 export default function Avatar3D() {
   const [show3D, setShow3D] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#161B22]">
+    <div
+      ref={containerRef}
+      className="relative w-full h-full rounded-2xl overflow-hidden bg-[#161B22]"
+    >
       {show3D ? (
         <Canvas
           camera={{ position: [0, 0, 3], fov: 50 }}
-          gl={{ antialias: true, alpha: true }}
+          gl={{
+            antialias: false,
+            alpha: true,
+            powerPreference: "high-performance",
+            stencil: false,
+            depth: true,
+          }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.5 }}
+          frameloop={isVisible ? "always" : "never"}
         >
           <Suspense fallback={null}>
             <ambientLight intensity={0.5} />
@@ -38,6 +71,8 @@ export default function Avatar3D() {
               maxPolarAngle={Math.PI / 1.5}
               minDistance={3}
               maxDistance={8}
+              enableDamping={true}
+              dampingFactor={0.05}
             />
           </Suspense>
         </Canvas>
