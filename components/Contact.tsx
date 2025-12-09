@@ -28,10 +28,22 @@ export default function Contact() {
 
           <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden bg-[#161B22] border border-white/10">
             <ContactAnimation />
+            <div className="absolute bottom-4 left-4 right-4 flex justify-center">
+              <p className="text-white/50 text-xs text-center">
+                3D Model by{" "}
+                <a
+                  href="https://sketchfab.com/3d-models/blue-flower-animated-c20b1f12833148e09f7f49c3dd444906"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors underline"
+                >
+                  morphy.vision
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
