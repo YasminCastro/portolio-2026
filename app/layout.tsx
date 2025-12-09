@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Full Stack Developer",
+  title: "Yas Castro",
   description: "Portfolio de desenvolvedora full stack",
 };
 
