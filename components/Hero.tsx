@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Avatar3D from "./Avatar3D";
 
 export default function Hero() {
   return (
@@ -11,25 +11,10 @@ export default function Hero() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Foto - Lado Esquerdo */}
+          {/* Avatar 3D - Lado Esquerdo */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-1">
             <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#161B22]">
-              <Image
-                src="/profile.jpg"
-                alt="Yasmin"
-                fill
-                className="object-cover"
-                priority
-                onError={(e) => {
-                  // Fallback caso a imagem não exista
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = "none";
-                  if (target.parentElement) {
-                    target.parentElement.style.backgroundColor = "#161B22";
-                  }
-                }}
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-[#0D1117]/50 to-transparent"></div>
+              <Avatar3D />
             </div>
           </div>
 
