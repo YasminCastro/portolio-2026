@@ -20,26 +20,26 @@ const academicItems: AcademicItem[] = [
     institution: "Instituto Federal de Goiás",
     period: "2020 - 2024",
     description:
-      "Bachelor’s Degree in Information Systems with focus on software engineering and web development.",
+      "Bachelor’s Degree in Information Systems with focus on software development, databases and web technologies, with hands-on experience through academic projects.",
     icon: <GraduationCap className="w-6 h-6" />,
   },
   {
-    type: "exchange",
-    title: "Study Abroad Program",
-    institution: "International University",
-    period: "2017",
+    type: "certification",
+    title: "Cloud Foundations",
+    institution: "Amazon Web Services Training and Certification",
+    period: "2022",
     description:
-      "One year exchange program focusing on advanced web technologies and international collaboration.",
-    icon: <Globe className="w-6 h-6" />,
+      "Introductory cloud computing course covering core AWS services, global infrastructure, pricing models and basic architecture best practices.",
+    icon: <Award className="w-6 h-6" />,
   },
   {
-    type: "certification",
-    title: "Full Stack Web Development",
-    institution: "Certification Provider",
-    period: "2023",
+    type: "exchange",
+    title: "Goiás Without Borders",
+    institution: "New Jersey City University",
+    period: "2017",
     description:
-      "Certified in Full Stack Web Development covering React, Node.js, and modern development practices.",
-    icon: <Award className="w-6 h-6" />,
+      "One-month exchange program from the state of Goiás, Brazil, offering academic and international experience, where I studied English.",
+    icon: <Globe className="w-6 h-6" />,
   },
 ];
 
@@ -48,9 +48,9 @@ const getIconColor = (type: string) => {
     case "graduation":
       return "from-[#60A5FA] to-[#6EE7B7]";
     case "exchange":
-      return "from-[#A78BFA] to-[#FCA5A5]";
-    case "certification":
       return "from-[#6EE7B7] to-[#60A5FA]";
+    case "certification":
+      return "from-[#A78BFA] to-[#FCA5A5]";
     default:
       return "from-[#A78BFA] to-[#60A5FA]";
   }
