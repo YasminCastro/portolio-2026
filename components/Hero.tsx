@@ -3,6 +3,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Avatar3D from "./Avatar3D";
 import SocialButton from "./SocialButton";
+import BlurText from './ui/BlurText';
 
 export default function Hero() {
   return (
@@ -22,9 +23,13 @@ export default function Hero() {
           {/* Right Side - Content */}
           <div className="order-1 lg:order-2 space-y-4 sm:space-y-6 text-center lg:text-left">
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Hi, I'm Yasmin Castro
-              </h1>
+              <BlurText
+                text="Hi, I'm Yasmin Castro"
+                delay={200}
+                animateBy="words"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                direction="top"
+              />
             </div>
 
             <div className="space-y-3 sm:space-y-4 text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
