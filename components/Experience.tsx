@@ -89,15 +89,14 @@ export default function Experience() {
               return (
                 <div
                   key={index}
-                  className={`relative flex items-center ${
-                    isEven
-                      ? "flex-row md:flex-row"
-                      : "flex-row md:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-center ${isEven
+                    ? "flex-row md:flex-row"
+                    : "flex-row md:flex-row-reverse"
+                    }`}
                 >
                   <div className="w-full md:w-[45%] pl-8 sm:pl-10 md:pl-0">
                     <Card className="bg-[#161B22] border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20">
-                      <CardHeader className="p-4 sm:p-6">
+                      <CardHeader className="px-4 sm:px-6">
                         <div className="flex items-start gap-3 sm:gap-4">
                           <div
                             className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-linear-to-br ${exp.iconColor} flex items-center justify-center shrink-0 shadow-lg`}
@@ -120,7 +119,7 @@ export default function Experience() {
                         </div>
                       </CardHeader>
 
-                      <CardContent className="p-4 sm:p-6 pt-0">
+                      <CardContent className="px-4 sm:px-6 pt-0">
                         <ul className="space-y-2 sm:space-y-2">
                           {exp.responsibilities.map((responsibility, idx) => (
                             <li
