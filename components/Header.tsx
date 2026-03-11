@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Home, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
@@ -8,6 +8,11 @@ import DownloadCVButton from "./DownloadCVButton";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleNavigation = (href: string) => {
     if (href.startsWith("#")) {
@@ -42,20 +47,35 @@ export default function Header() {
           <div className="absolute inset-0 rounded-full bg-linear-to-r from-[#FCA5A5] via-[#60A5FA] to-[#A78BFA] opacity-30"></div>
           <div className="absolute inset-px rounded-full bg-[#161B22]"></div>
 
-          <Menubar className="relative bg-transparent border-0 shadow-none rounded-full px-1 py-2 h-auto z-10 gap-1">
-            {menuItems.map((item, index) => (
-              <MenubarMenu key={index}>
-                <MenubarTrigger
-                  onClick={() => handleNavigation(item.href)}
+          {isMounted ? (
+            <Menubar className="relative bg-transparent border-0 shadow-none rounded-full px-1 py-2 h-auto z-10 gap-1">
+              {menuItems.map((item, index) => (
+                <MenubarMenu key={index}>
+                  <MenubarTrigger
+                    onClick={() => handleNavigation(item.href)}
+                    className={`${
+                      item.icon ? "p-2" : "px-4 py-2"
+                    } rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto text-white border-0 focus:bg-white/5 cursor-pointer text-sm`}
+                  >
+                    {item.icon || item.label}
+                  </MenubarTrigger>
+                </MenubarMenu>
+              ))}
+            </Menubar>
+          ) : (
+            <div className="relative bg-transparent rounded-full px-1 py-2 h-auto z-10 gap-1 flex items-center">
+              {menuItems.map((item, index) => (
+                <button
+                  key={index}
                   className={`${
                     item.icon ? "p-2" : "px-4 py-2"
-                  } rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto text-white border-0 focus:bg-white/5 cursor-pointer text-sm`}
+                  } rounded-full text-white text-sm font-medium`}
                 >
                   {item.icon || item.label}
-                </MenubarTrigger>
-              </MenubarMenu>
-            ))}
-          </Menubar>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu Button */}

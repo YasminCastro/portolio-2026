@@ -15,9 +15,9 @@ import {
   SiStyledcomponents,
   SiPuppeteer,
   SiDocker,
-  SiAmazon,
   SiGit,
 } from "react-icons/si";
+import { FaAmazon } from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 
 interface Skill {
@@ -82,7 +82,7 @@ const skills: Skill[] = [
     name: "Docker",
     icon: <SiDocker className="w-full h-full text-[#2496ED]" />,
   },
-  { name: "AWS", icon: <SiAmazon className="w-full h-full text-[#FF9900]" /> },
+  { name: "AWS", icon: <FaAmazon className="w-full h-full text-[#FF9900]" /> },
   { name: "Git", icon: <SiGit className="w-full h-full text-[#F05032]" /> },
 ];
 
@@ -110,11 +110,10 @@ export default function Skills() {
                 </div>
               </div>
               <p
-                className={`text-white/90 font-medium text-center group-hover:text-white transition-colors ${
-                  skill.name.length > 15
-                    ? "text-[9px] sm:text-[10px] md:text-xs"
-                    : "text-[10px] sm:text-xs md:text-sm"
-                }`}
+                className={`text-white/90 font-medium text-center group-hover:text-white transition-colors ${skill.name.length > 15
+                  ? "text-[9px] sm:text-[10px] md:text-xs"
+                  : "text-[10px] sm:text-xs md:text-sm"
+                  }`}
               >
                 {skill.name}
               </p>
