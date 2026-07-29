@@ -1,9 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import Avatar3D from "./Avatar3D";
 import SocialButton from "./SocialButton";
 import BlurText from './ui/BlurText';
+
+const Avatar3D = dynamic(() => import("./Avatar3D"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-[#161B22] animate-pulse" />,
+});
 
 export default function Hero() {
   return (

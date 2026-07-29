@@ -1,11 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ContactAnimation from "./ContactAnimation";
+import dynamic from "next/dynamic";
 import { models3D, Model3DConfig } from "@/lib/models3d";
 import { ChevronRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import DownloadCVButton from "./DownloadCVButton";
+
+const ContactAnimation = dynamic(() => import("./ContactAnimation"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-[#161B22] animate-pulse" />,
+});
 
 export default function Contact() {
   const [currentModelIndex, setCurrentModelIndex] = useState(() =>
