@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.yascastro.com.br"),
-  title: "Yas Castro",
-  description: "Portfolio de desenvolvedora full stack",
+  title: "Yasmin Castro | Full-Stack Developer - React & Node.js",
+  description:
+    "Yasmin Castro is a Full-Stack Developer specializing in React, Node.js and TypeScript, building fast and scalable web and mobile applications since 2021.",
   alternates: {
     canonical: "/",
   },
