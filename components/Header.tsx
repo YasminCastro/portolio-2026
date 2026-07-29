@@ -36,7 +36,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 bg-[#0D1117]/80 backdrop-blur-sm border-b border-white/5">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center group">
+        <Link href="/" aria-label="Yasmin Castro - Home" className="flex items-center group">
           <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-linear-to-r from-[#A78BFA] via-[#60A5FA] to-[#FCA5A5] flex items-center justify-center shadow-lg shadow-[#A78BFA]/20">
             <span className="text-white font-bold text-lg sm:text-xl">Y</span>
           </div>
