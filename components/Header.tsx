@@ -53,6 +53,7 @@ export default function Header() {
                 <MenubarMenu key={index}>
                   <MenubarTrigger
                     onClick={() => handleNavigation(item.href)}
+                    aria-label={item.icon ? item.label : undefined}
                     className={`${
                       item.icon ? "p-2" : "px-4 py-2"
                     } rounded-full hover:bg-white/5 data-[state=open]:bg-white/5 h-auto text-white border-0 focus:bg-white/5 cursor-pointer text-sm`}
@@ -67,6 +68,7 @@ export default function Header() {
               {menuItems.map((item, index) => (
                 <button
                   key={index}
+                  aria-label={item.icon ? item.label : undefined}
                   className={`${
                     item.icon ? "p-2" : "px-4 py-2"
                   } rounded-full text-white text-sm font-medium`}

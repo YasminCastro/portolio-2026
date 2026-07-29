@@ -44,6 +44,7 @@ export default function Contact() {
                 href="mailto:yasminsdcastro@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Email"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
               >
                 <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -52,6 +53,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/yasmin-sdcastro"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
               >
                 <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -60,6 +62,7 @@ export default function Contact() {
                 href="https://github.com/YasminCastro"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0D1117] flex items-center justify-center text-white hover:bg-linear-to-r hover:from-[#A78BFA] hover:via-[#60A5FA] hover:to-[#FCA5A5] transition-all duration-300"
               >
                 <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -72,6 +75,7 @@ export default function Contact() {
             <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
               <button
                 onClick={handleNextModel}
+                aria-label="Show next 3D model"
                 className="p-1.5 sm:p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all backdrop-blur-sm border border-white/20 hover:border-white/30 shadow-lg flex items-center justify-center"
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />

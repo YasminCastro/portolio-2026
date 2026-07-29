@@ -48,18 +48,21 @@ export default function Hero() {
               <SocialButton
                 href="https://www.linkedin.com/in/yasmin-sdcastro"
                 icon={<FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />}
+                label="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
               />
               <SocialButton
                 href="https://github.com/YasminCastro"
                 icon={<FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />}
+                label="GitHub"
                 target="_blank"
                 rel="noopener noreferrer"
               />
               <SocialButton
                 href="mailto:yasminsdcastro@gmail.com"
                 icon={<FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6" />}
+                label="Email"
               />
             </div>
           </div>
