@@ -5,6 +5,7 @@ import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Model3DConfig } from "@/lib/models3d";
 import * as THREE from "three";
+import ErrorBoundary from "./ErrorBoundary";
 
 interface Model3DProps {
   config: Model3DConfig;
@@ -104,52 +105,54 @@ export default function ContactAnimation({ config }: ContactAnimationProps) {
 
   return (
     <div ref={containerRef} className="relative w-full h-full min-h-[400px]">
-      <Canvas
-        camera={{ position: config.cameraPosition, fov: 50 }}
-        gl={{
-          antialias: false,
-          alpha: true,
-          powerPreference: "high-performance",
-          stencil: false,
-          depth: true,
-        }}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.5 }}
-        frameloop={isVisible ? "always" : "never"}
-        shadows={config.hasShadow}
-      >
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.6} />
-          <directionalLight
-            position={[10, 10, 5]}
-            intensity={1}
-            castShadow={config.hasShadow}
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
-            shadow-camera-far={50}
-            shadow-camera-left={-10}
-            shadow-camera-right={10}
-            shadow-camera-top={10}
-            shadow-camera-bottom={-10}
-          />
-          <pointLight position={[-10, -10, -5]} intensity={0.5} />
-          {config.hasShadow && (
-            <ShadowPlane modelY={config.position?.[1] || 0} />
-          )}
-          <Model3D config={config} />
-          <CameraUpdater cameraPosition={config.cameraPosition} />
-          <OrbitControls
-            enableZoom={true}
-            enablePan={true}
-            enableRotate={true}
-            target={[0, 0, 0]}
-            autoRotate={config.autoRotate}
-            autoRotateSpeed={config.autoRotate ? 0.5 : 0}
-            enableDamping={true}
-            dampingFactor={0.05}
-          />
-        </Suspense>
-      </Canvas>
+      <ErrorBoundary>
+        <Canvas
+          camera={{ position: config.cameraPosition, fov: 50 }}
+          gl={{
+            antialias: false,
+            alpha: true,
+            powerPreference: "high-performance",
+            stencil: false,
+            depth: true,
+          }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.5 }}
+          frameloop={isVisible ? "always" : "never"}
+          shadows={config.hasShadow}
+        >
+          <Suspense fallback={null}>
+            <ambientLight intensity={0.6} />
+            <directionalLight
+              position={[10, 10, 5]}
+              intensity={1}
+              castShadow={config.hasShadow}
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+            <pointLight position={[-10, -10, -5]} intensity={0.5} />
+            {config.hasShadow && (
+              <ShadowPlane modelY={config.position?.[1] || 0} />
+            )}
+            <Model3D config={config} />
+            <CameraUpdater cameraPosition={config.cameraPosition} />
+            <OrbitControls
+              enableZoom={true}
+              enablePan={true}
+              enableRotate={true}
+              target={[0, 0, 0]}
+              autoRotate={config.autoRotate}
+              autoRotateSpeed={config.autoRotate ? 0.5 : 0}
+              enableDamping={true}
+              dampingFactor={0.05}
+            />
+          </Suspense>
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 }

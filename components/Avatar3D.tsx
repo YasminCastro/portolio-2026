@@ -6,6 +6,7 @@ import { Suspense, useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Image as ImageIcon } from "lucide-react";
+import ErrorBoundary from "./ErrorBoundary";
 
 function Model() {
   const { scene } = useGLTF("/avatar.glb");
@@ -44,38 +45,52 @@ export default function Avatar3D() {
       className="relative w-full h-full rounded-2xl overflow-hidden bg-[#161B22]"
     >
       {show3D ? (
-        <Canvas
-          camera={{ position: [0, 0, 3], fov: 50 }}
-          gl={{
-            antialias: false,
-            alpha: true,
-            powerPreference: "high-performance",
-            stencil: false,
-            depth: true,
-          }}
-          dpr={[1, 1.5]}
-          performance={{ min: 0.5 }}
-          frameloop={isVisible ? "always" : "never"}
+        <ErrorBoundary
+          fallback={
+            <div className="relative w-full h-full">
+              <Image
+                src="/avatar.jpg"
+                alt="Avatar"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          }
         >
-          <Suspense fallback={null}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <pointLight position={[-10, -10, -5]} intensity={0.5} />
-            <Model />
-            <OrbitControls
-              enableZoom={true}
-              enablePan={false}
-              autoRotate
-              autoRotateSpeed={1}
-              minPolarAngle={Math.PI / 3}
-              maxPolarAngle={Math.PI / 1.5}
-              minDistance={3}
-              maxDistance={8}
-              enableDamping={true}
-              dampingFactor={0.05}
-            />
-          </Suspense>
-        </Canvas>
+          <Canvas
+            camera={{ position: [0, 0, 3], fov: 50 }}
+            gl={{
+              antialias: false,
+              alpha: true,
+              powerPreference: "high-performance",
+              stencil: false,
+              depth: true,
+            }}
+            dpr={[1, 1.5]}
+            performance={{ min: 0.5 }}
+            frameloop={isVisible ? "always" : "never"}
+          >
+            <Suspense fallback={null}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[10, 10, 5]} intensity={1} />
+              <pointLight position={[-10, -10, -5]} intensity={0.5} />
+              <Model />
+              <OrbitControls
+                enableZoom={true}
+                enablePan={false}
+                autoRotate
+                autoRotateSpeed={1}
+                minPolarAngle={Math.PI / 3}
+                maxPolarAngle={Math.PI / 1.5}
+                minDistance={3}
+                maxDistance={8}
+                enableDamping={true}
+                dampingFactor={0.05}
+              />
+            </Suspense>
+          </Canvas>
+        </ErrorBoundary>
       ) : (
         <div className="relative w-full h-full">
           <Image
