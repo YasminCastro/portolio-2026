@@ -84,6 +84,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             src={project.image}
             alt={project.title}
             fill
+            sizes="(min-width: 1024px) 640px, 100vw"
             className="object-cover"
           />
         </div>

@@ -52,6 +52,7 @@ export default function Avatar3D() {
                 src="/avatar.jpg"
                 alt="Avatar"
                 fill
+                sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
                 className="object-cover"
                 priority
               />
@@ -97,6 +98,7 @@ export default function Avatar3D() {
             src="/avatar.jpg"
             alt="Avatar"
             fill
+            sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
             className="object-cover"
             priority
           />
