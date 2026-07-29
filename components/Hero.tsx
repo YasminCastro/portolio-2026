@@ -24,6 +24,7 @@ export default function Hero() {
           <div className="order-1 lg:order-2 space-y-4 sm:space-y-6 text-center lg:text-left">
             <div className="space-y-3 sm:space-y-4">
               <BlurText
+                as="h1"
                 text="Hi, I'm Yasmin Castro"
                 delay={200}
                 animateBy="words"
