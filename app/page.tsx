@@ -43,12 +43,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       <Header />
-      <Hero />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Academic />
-      <Contact />
+      <main>
+        <Hero />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Academic />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
