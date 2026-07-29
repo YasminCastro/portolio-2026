@@ -105,7 +105,10 @@ export default function Skills() {
               className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 p-3 sm:p-4 md:p-6 rounded-xl bg-[#161B22] border border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20 group cursor-pointer"
             >
               <div className="flex items-center justify-center">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
+                <div
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                  aria-hidden="true"
+                >
                   {skill.icon}
                 </div>
               </div>
