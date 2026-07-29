@@ -25,6 +25,15 @@ const academicItems: AcademicItem[] = [
   },
   {
     type: "certification",
+    title: "Google AI Professional Certificate",
+    institution: "Google",
+    period: "2026",
+    description:
+      "Professional certification covering AI fundamentals and applied tools from Google.",
+    icon: <Award className="w-6 h-6" />,
+  },
+  {
+    type: "certification",
     title: "Cloud Foundations",
     institution: "Amazon Web Services Training and Certification",
     period: "2022",
@@ -32,6 +41,7 @@ const academicItems: AcademicItem[] = [
       "Introductory cloud computing course covering core AWS services, global infrastructure, pricing models and basic architecture best practices.",
     icon: <Award className="w-6 h-6" />,
   },
+
   {
     type: "exchange",
     title: "Goiás Without Borders",
@@ -69,36 +79,34 @@ export default function Academic() {
           className="mb-8 sm:mb-12 md:mb-16"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {academicItems.map((item, index) => (
             <Card
               key={index}
               className="bg-[#161B22] border-white/10 hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20"
             >
-              <CardContent className="p-4 sm:p-6 flex flex-col items-center text-center">
+              <CardContent className="p-3 sm:p-4 flex flex-col items-center text-center">
                 <div
-                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-linear-to-br ${getIconColor(
-                    item.type
-                  )} flex items-center justify-center mb-3 sm:mb-4 shadow-lg`}
+                  className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-linear-to-br ${getIconColor(
+                    item.type,
+                  )} flex items-center justify-center mb-2 sm:mb-3 shadow-lg`}
                 >
-                  <div className="text-white flex items-center justify-center">
+                  <div className="text-white flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5">
                     {item.icon}
                   </div>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                <h3 className="text-xs sm:text-sm font-bold text-white mb-1">
                   {item.title}
                 </h3>
 
-                <p className="text-white/70 text-xs sm:text-sm mb-2">
+                <p className="text-white/70 text-[10px] sm:text-xs mb-1">
                   {item.institution}
                 </p>
 
-                <p className="text-white/50 text-xs mb-3 sm:mb-4">
-                  {item.period}
-                </p>
+                <p className="text-white/50 text-[10px] mb-2">{item.period}</p>
 
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
+                <p className="text-white/80 text-[10px] sm:text-xs leading-relaxed">
                   {item.description}
                 </p>
               </CardContent>
