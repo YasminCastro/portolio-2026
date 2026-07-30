@@ -4,10 +4,11 @@ import dynamic from "next/dynamic";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import SocialButton from "./SocialButton";
 import BlurText from './ui/BlurText';
+import Spinner from "./Spinner";
 
 const Avatar3D = dynamic(() => import("./Avatar3D"), {
   ssr: false,
-  loading: () => <div className="w-full h-full bg-[#161B22] animate-pulse" />,
+  loading: () => <Spinner />,
 });
 
 export default function Hero() {

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Image as ImageIcon } from "lucide-react";
 import ErrorBoundary from "./ErrorBoundary";
+import Loader3D from "./Loader3D";
 
 function Model() {
   const { scene } = useGLTF("/avatar.glb");
@@ -18,6 +19,7 @@ useGLTF.preload("/avatar.glb");
 export default function Avatar3D() {
   const [show3D, setShow3D] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,7 +55,10 @@ export default function Avatar3D() {
                 alt="Avatar"
                 fill
                 sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
-                className="object-cover"
+                onLoad={() => setIsImageLoaded(true)}
+                className={`object-cover transition-opacity duration-500 ${
+                  isImageLoaded ? "opacity-100" : "opacity-0"
+                }`}
                 priority
               />
             </div>
@@ -68,11 +73,11 @@ export default function Avatar3D() {
               stencil: false,
               depth: true,
             }}
-            dpr={[1, 1.5]}
+            dpr={1}
             performance={{ min: 0.5 }}
             frameloop={isVisible ? "always" : "never"}
           >
-            <Suspense fallback={null}>
+            <Suspense fallback={<Loader3D />}>
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
               <pointLight position={[-10, -10, -5]} intensity={0.5} />
@@ -99,7 +104,10 @@ export default function Avatar3D() {
             alt="Avatar"
             fill
             sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
-            className="object-cover"
+            onLoad={() => setIsImageLoaded(true)}
+            className={`object-cover transition-opacity duration-500 ${
+              isImageLoaded ? "opacity-100" : "opacity-0"
+            }`}
             priority
           />
         </div>

@@ -8,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -76,16 +77,21 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <Card className="bg-[#161B22] border-white/10 overflow-hidden hover:border-[#A78BFA]/50 transition-all hover:shadow-lg hover:shadow-[#A78BFA]/20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-auto">
+        <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-auto bg-[#0D1117]">
           <Image
             src={project.image}
             alt={project.title}
             fill
             sizes="(min-width: 1024px) 640px, 100vw"
-            className="object-cover"
+            onLoad={() => setIsLoaded(true)}
+            className={`object-cover transition-opacity duration-500 ${
+              isLoaded ? "opacity-100" : "opacity-0"
+            }`}
           />
         </div>
 

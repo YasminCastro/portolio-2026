@@ -6,6 +6,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { Model3DConfig } from "@/lib/models3d";
 import * as THREE from "three";
 import ErrorBoundary from "./ErrorBoundary";
+import Loader3D from "./Loader3D";
 
 interface Model3DProps {
   config: Model3DConfig;
@@ -115,12 +116,12 @@ export default function ContactAnimation({ config }: ContactAnimationProps) {
             stencil: false,
             depth: true,
           }}
-          dpr={[1, 1.5]}
+          dpr={1}
           performance={{ min: 0.5 }}
           frameloop={isVisible ? "always" : "never"}
           shadows={config.hasShadow}
         >
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loader3D />}>
             <ambientLight intensity={0.6} />
             <directionalLight
               position={[10, 10, 5]}

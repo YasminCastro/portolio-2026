@@ -6,10 +6,11 @@ import { models3D, Model3DConfig } from "@/lib/models3d";
 import { ChevronRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import DownloadCVButton from "./DownloadCVButton";
+import Spinner from "./Spinner";
 
 const ContactAnimation = dynamic(() => import("./ContactAnimation"), {
   ssr: false,
-  loading: () => <div className="w-full h-full bg-[#161B22] animate-pulse" />,
+  loading: () => <Spinner />,
 });
 
 export default function Contact() {
